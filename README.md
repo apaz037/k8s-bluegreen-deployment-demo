@@ -14,11 +14,15 @@ if you are on a mac and using brew for package management you can use the comman
 ```brew cask install mikube kubectl```
 
 ## Initializing a local Kubernetes cluster with Minikube
+As crazy as it sounds, all we need to do to set up a local kubernetes cluster with minikube is type one command.
 ```minikube start```
+
+When this is done we'll have a basic kubernetes environment that we can begin doing all sorts of interesting things on.
 
 ## Creating the Blue Deployment
 The blue deployment represents the code that is currently live in production.  It can be accessed by users because it is exposed by a Kubernetes Service with type LoadBalancer.
 
+#### hack/k8s/blue-deployment.yaml
 ```
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -53,6 +57,7 @@ We should see 3 nginx 1.10 pods spinning up.  Wait for them to become ready.  Yo
 ## Exposing our Blue Deployment via a Service
 The ```name``` and ```version``` labels specified in the Deployment are used to select pods for the service to route traffic to.
 
+#### hack/k8s/service-blue.yaml
 ```
 apiVersion: v1
 kind: Service
@@ -92,13 +97,24 @@ We can test our blue deployment by polling the server and grabbing the deployed 
 ./hack/sh/test.sh
 ```
 
-All this simple bash script does is get our service's url from our kubernetes cluster using minikube.  We store this in a variable called server and curl every half second the version displayed on nginx's ```/version``` page.  We should be able to see that our current deployment shows an nginx version of 1.10.
+All this simple bash script does is get our service's url from our kubernetes cluster using minikube.  We store this in a variable called server and curl every half second the version displayed on nginx's ```/version``` page.  
+
+#### hack/sh/test.sh
+```
+server=$(minikube service nginx --url)
+while true; do curl --insecure $server/version | grep nginx; sleep 0.5; done
+```
+
+
+We should be able to see that our current deployment shows an nginx version of 1.10.
 
 ## Updating our application
 Here, we will create a new Deployment to update the application.  The servie will be updated to point at our new version.
 
 ### Creating the Green Deployment
 Our Green Deployment will be a new deployment created with different labels.  Since our new labels will not match the ones of our Service, no requests will be sent to the pods in the Green Deployment currently.
+
+#### hack/k8s/green-deployment.yaml
 ```
 apiVersion: extensions/v1beta1
 kind: Deployment
