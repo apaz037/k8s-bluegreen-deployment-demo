@@ -28,18 +28,18 @@ The blue deployment represents the code that is currently live in production.  I
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-1.10
+  name: nginx-1.14
 spec:
   replicas: 3
   template:
     metadata:
       labels:
         name: nginx
-        version: "1.10"
+        version: "1.14"
     spec:
       containers: 
         - name: nginx
-          image: nginx:1.10
+          image: nginx:1.14
           ports:
             - name: http
               containerPort: 80
@@ -73,7 +73,7 @@ spec:
       targetPort: 80
   selector: 
     name: nginx
-    version: "1.10"
+    version: "1.14"
   type: LoadBalancer
 ```
 
@@ -120,18 +120,18 @@ Our Green Deployment will be a new deployment created with different labels.  Si
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-1.11
+  name: nginx-1.15
 spec:
   replicas: 3
   template:
     metadata:
       labels:
         name: nginx
-        version: "1.11"
+        version: "1.15"
     spec:
       containers: 
         - name: nginx
-          image: nginx:1.11
+          image: nginx:1.15
           ports:
             - name: http
               containerPort: 80
