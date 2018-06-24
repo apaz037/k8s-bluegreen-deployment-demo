@@ -15,6 +15,7 @@ if you are on a mac and using brew for package management you can use the comman
 
 ## Initializing a local Kubernetes cluster with Minikube
 As crazy as it sounds, all we need to do to set up a local kubernetes cluster with minikube is type one command.
+
 ```minikube start```
 
 When this is done we'll have a basic kubernetes environment that we can begin doing all sorts of interesting things on.
