@@ -151,6 +151,7 @@ When they are ready, we can move on to updating our service to point to the gree
 In order to route traffic to our green deployment, we must modify our service to select pods from the green deployment.  The service will then route new traffic to our green deployment's pods.
 
 Let's update our Service:
+
 ```k apply -f hack/k8s/service-green.yaml ```
 
 ### Testing that Traffic is going to Green
