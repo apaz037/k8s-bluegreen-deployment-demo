@@ -161,7 +161,7 @@ Let's test with the same script we used before to check the version of NGINX our
 
 
 ## Automating Blue/Green Deployments
-You could theoretically implement Blue/Green deployments as a type of Custom Resource Definition in Kubernetes.  This is probably the preferable way to do it as it would be cluster-native.  However, you can also do it with this bash script.  The script creates a new Deployment and waits for it to become ready prior to updating Service's selector.
+You could theoretically implement Blue/Green deployments as a type of Custom Resource Definition in Kubernetes.  This is probably the preferable way to do it.  However, you can also do it with this bash script.  The script creates a new Deployment and waits for it to become ready prior to updating Service's selector.
 
 ```
 #!/bin/bash
