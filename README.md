@@ -83,6 +83,8 @@ In order to test our service, minikube offers a nifty feature to peak inside our
 
 ``` minikube service nginx ```
 
+This command will be open our nginx service in a browser window for us by querying the kubernetes api for us via minikube.  We'll use this same command with --url flag to give us the url programatically later on.
+
 ### Testing the Blue Deployment
 We can test our blue deployment by polling the server and grabbing the deployed version of NGINX.
 
