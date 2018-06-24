@@ -188,4 +188,4 @@ echo "Done."
 ```
 
 ## Credits
-Thanks to Ian Lewis of Google Cloud Platform for intiially publishing similar content for GCP [here](Kubernetes Blue/Green Deplyment Tutorial) under the Apache License.
+Thanks to Ian Lewis of Google Cloud Platform for intiially publishing similar content for GCP [here](https://github.com/ianlewis/kubernetes-bluegreen-deployment-tutorial) under the Apache License.
