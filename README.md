@@ -53,7 +53,7 @@ Now if we run
 
 ``` k get pods --watch```
 
-We should see 3 nginx 1.10 pods spinning up.  Wait for them to become ready.  You can use the --watch argument of kubectl to monitor the status of your pods in realtime.
+We should see 3 nginx 1.14 pods spinning up.  Wait for them to become ready.  You can use the --watch argument of kubectl to monitor the status of your pods in realtime.
 
 ## Exposing our Blue Deployment via a Service
 The ```name``` and ```version``` labels specified in the Deployment are used to select pods for the service to route traffic to.
@@ -107,7 +107,7 @@ while true; do curl --insecure $server/version | grep nginx; sleep 0.5; done
 ```
 
 
-We should be able to see that our current deployment shows an nginx version of 1.10.
+We should be able to see that our current deployment shows an nginx version of 1.14.
 
 ## Updating our application
 Here, we will create a new Deployment to update the application.  The servie will be updated to point at our new version.
