@@ -6,8 +6,11 @@ The purpose of this project is to explore blue green deployments in Kubernetes w
 - [minikube](https://github.com/kubernetes/minikube)
 - [kubectl](https://github.com/kubernetes/kubectl)
 - I personally alias kubectl to k so all references to k will mean kubectl if you don't have that aliased
+    - if you want to alias it like I do for convenience,
+    - ```alias k="kubectl"```
 
-if you are on a mac and using brew for package management you can use the command below to install both
+if you are on a mac and using brew for package management you can use the command below to install both minikube and kubectl
+
 ```brew cask install mikube kubectl```
 
 ## Initializing a local Kubernetes cluster with Minikube
@@ -86,6 +89,8 @@ We can test our blue deployment by polling the server and grabbing the deployed 
 ```
 ./hack/sh/test.sh
 ```
+
+All this simple bash script does is get our service's url from our kubernetes cluster using minikube.  We store this in a variable called server and curl every half second the version displayed on nginx's ```/version``` page.  We should be able to see that our current deployment shows an nginx version of 1.10.
 
 ## Updating our application
 Here, we will create a new Deployment to update the application.  The servie will be updated to point at our new version.
