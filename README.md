@@ -1,5 +1,5 @@
 # k8s-bluegreen-deployment-demo
-The purpose of this project is to explore blue green deployments in Kubernetes with Minikube.  This work is based on Ian Lewis' Blue Green Deployments with GCP Tutorial, but utilizes a local Minikube cluster instead of GCP.
+The purpose of this project is to explore blue green deployments in Kubernetes with Minikube.  This work is based on Ian Lewis' (Blue Green Deployments with GCP)[https://github.com/ianlewis/kubernetes-bluegreen-deployment-tutorial] Tutorial, but utilizes a local Minikube cluster instead of GCP.
 
 
 ## Prerequisites
