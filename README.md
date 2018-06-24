@@ -24,7 +24,7 @@ When this is done we'll have a basic kubernetes environment that we can begin do
 The blue deployment represents the code that is currently live in production.  It can be accessed by users because it is exposed by a Kubernetes Service with type LoadBalancer.
 
 #### hack/k8s/blue-deployment.yaml
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -59,7 +59,7 @@ We should see 3 nginx 1.10 pods spinning up.  Wait for them to become ready.  Yo
 The ```name``` and ```version``` labels specified in the Deployment are used to select pods for the service to route traffic to.
 
 #### hack/k8s/service-blue.yaml
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata: 
@@ -116,7 +116,7 @@ Here, we will create a new Deployment to update the application.  The servie wil
 Our Green Deployment will be a new deployment created with different labels.  Since our new labels will not match the ones of our Service, no requests will be sent to the pods in the Green Deployment currently.
 
 #### hack/k8s/green-deployment.yaml
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
